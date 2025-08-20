@@ -1,271 +1,310 @@
 <!DOCTYPE html><html lang="bn">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PlayBetPro.com — Smart Sports Betting</title>
-  <meta name="description" content="PlayBetPro.com — A clean, modern sports betting landing page template with logo, sections, and responsive design." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b1220'/%3E%3Cpath d='M14 44 L22 20 h8 l-8 24 h-8 Z M40 44 q8 0 8-8 0-8-8-8 h-6 v-8 h-8 v24 h14 Z' fill='%2300e07b'/%3E%3C/svg%3E" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crash Game – Demo (Education Only)</title>
   <style>
-    :root{
-      --bg:#0b1220;        /* deep navy */
-      --card:#101a2e;      /* darker card */
-      --fg:#e6edf6;        /* near white */
-      --muted:#8aa2c0;     /* slate */
-      --accent:#00e07b;    /* neon green */
-      --accent-2:#00a2ff;  /* electric blue */
-      --ring: 0 0 0 3px color-mix(in srgb, var(--accent) 40%, transparent);
-      --shadow: 0 8px 24px rgba(0,0,0,.35);
-      --radius: 16px;
-    }
+    :root { --bg:#0b1320; --card:#111a2e; --accent:#3ea6ff; --text:#e6eefb; --muted:#9fb3d1; --danger:#ff5d6c; --success:#54d38a; }
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      background: radial-gradient(1000px 600px at 20% -10%, rgba(0,224,123,.15), transparent 60%),
-                  radial-gradient(900px 500px at 110% 0%, rgba(0,162,255,.12), transparent 60%),
-                  var(--bg);
-      color:var(--fg);
-    }
-    a{color:inherit; text-decoration:none}
-    .container{max-width:1120px; margin:auto; padding:24px}/* HEADER */
-header{position:sticky; top:0; z-index:50; background:linear-gradient(180deg, rgba(11,18,32,.9), rgba(11,18,32,.7), rgba(11,18,32,0)); backdrop-filter:saturate(140%) blur(8px)}
-.nav{display:flex; align-items:center; justify-content:space-between; gap:16px}
-.brand{display:flex; align-items:center; gap:12px}
-.brand svg{width:36px; height:36px}
-.brand .wordmark{font-weight:800; letter-spacing:.3px}
-.brand .pro{color:var(--accent)}
-
-.nav-actions{display:flex; align-items:center; gap:10px}
-.btn{
-  display:inline-flex; align-items:center; gap:8px;
-  border:1px solid color-mix(in srgb, var(--fg) 10%, transparent);
-  padding:10px 14px; border-radius:999px; font-weight:600; transition:.2s ease; background:transparent; color:var(--fg);
-}
-.btn:hover{transform:translateY(-1px); box-shadow:var(--shadow)}
-.btn.primary{background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 85%, #fff 5%), color-mix(in srgb, var(--accent-2) 65%, #fff 5%)); color:#02140a; border:none}
-
-/* HERO */
-.hero{padding:64px 0 40px}
-.hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:center}
-.chip{display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:999px; background:linear-gradient(180deg, #0e1b31 0%, #0b1220 100%); border:1px solid #183154; color:var(--muted); font-weight:600}
-h1{font-size: clamp(28px, 4vw, 48px); line-height:1.12; margin:16px 0 8px}
-.sub{color:var(--muted); font-size: clamp(14px, 2.4vw, 18px)}
-.hero-cta{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap}
-
-.glass{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); box-shadow:var(--shadow)}
-.stats{display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-top:18px}
-.stat{padding:16px; text-align:center}
-.stat .k{font-weight:800; font-size:22px; color:var(--accent)}
-.stat .lbl{color:var(--muted); font-size:12px}
-
-/* CARDS */
-.section{padding:28px 0}
-.cards{display:grid; grid-template-columns:repeat(3, 1fr); gap:16px}
-.card{padding:18px; border-radius:var(--radius); background:var(--card); border:1px solid rgba(255,255,255,.06); box-shadow:var(--shadow)}
-.card h3{margin:8px 0 6px}
-.muted{color:var(--muted)}
-
-/* LIVE TICKER */
-.ticker{display:grid; grid-template-columns:repeat(2, 1fr); gap:16px}
-.match{display:flex; justify-content:space-between; border-radius:14px; padding:12px 14px; background:linear-gradient(180deg, #0f1b31, #0d1628); border:1px solid #1a2a47}
-.match .teams{display:flex; align-items:center; gap:8px}
-.match .odds{display:flex; gap:8px}
-.pill{padding:6px 10px; border-radius:12px; background:#12233e; font-weight:700}
-.odds .pill{background:#0f2b1f; color:#93ffca}
-
-/* CTA */
-.cta{display:grid; grid-template-columns:1fr .7fr; gap:16px; align-items:center; margin-top:12px}
-.cta .box{padding:22px}
-
-/* FOOTER */
-footer{padding:24px 0 46px; color:var(--muted)}
-.footer-grid{display:grid; grid-template-columns:1.2fr .8fr .8fr; gap:16px}
-.small{font-size:12px}
-
-/* RESPONSIVE */
-@media (max-width: 960px){
-  .hero-grid, .cards, .ticker, .cta, .footer-grid{grid-template-columns:1fr}
-}
-
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial; background:var(--bg); color:var(--text)}
+    .wrap{max-width:1000px;margin:24px auto;padding:16px}
+    .header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+    .title{font-size:24px;font-weight:700;letter-spacing:.3px}
+    .badge{font-size:12px;color:var(--bg);background:var(--accent);padding:4px 10px;border-radius:999px}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:16px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+    .row{display:flex;gap:12px;flex-wrap:wrap}
+    label{font-size:13px;color:var(--muted)}
+    .field{display:flex;flex-direction:column;gap:6px;min-width:120px}
+    input[type="number"], input[type="text"]{appearance:textfield}
+    input{width:100%;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:#0a1022;color:var(--text);outline:none}
+    input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(62,166,255,.15)}
+    button{cursor:pointer;border:0;border-radius:12px;padding:12px 14px;font-weight:600}
+    .btn-primary{background:var(--accent);color:#061224}
+    .btn-secondary{background:#1b2847;color:var(--text)}
+    .btn-danger{background:var(--danger);color:#1a0f10}
+    .btn-disabled{opacity:.5;cursor:not-allowed}
+    .stats{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px}
+    .stat{background:#0a1022;border:1px solid rgba(255,255,255,.06);padding:10px 12px;border-radius:12px;font-size:14px}
+    canvas{width:100%;height:360px;background:linear-gradient(180deg, rgba(255,255,255,.04),rgba(255,255,255,0));border-radius:12px}
+    .status{margin-top:10px;font-size:14px;color:var(--muted)}
+    .multiplier{font-size:40px;font-weight:800;letter-spacing:.5px}
+    .multiplier .x{font-size:18px;color:var(--muted)}
+    .history{max-height:360px;overflow:auto;border-radius:12px}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.06);font-size:14px}
+    th{position:sticky;top:0;background:#0e1730;text-align:left;color:var(--muted)}
+    .tag{padding:2px 8px;border-radius:999px;font-size:12px}
+    .tag.win{background:rgba(84,211,138,.15);color:var(--success)}
+    .tag.lose{background:rgba(255,93,108,.15);color:var(--danger)}
+    .mt{margin-top:12px}
+    .small{font-size:12px;color:var(--muted)}
   </style>
 </head>
 <body>
-  <!-- SVG LOGO (inline, reusable) -->
-  <svg style="position:absolute; width:0; height:0; overflow:hidden" aria-hidden="true" focusable="false">
-    <symbol id="logo-playbetpro" viewBox="0 0 64 64">
-      <rect x="2" y="2" width="60" height="60" rx="12" fill="#0b1220" />
-      <path d="M14 44 L22 20 h8 l-8 24 h-8 Z M40 44 q8 0 8-8 0-8-8-8 h-6 v-8 h-8 v24 h14 Z" fill="#00e07b" />
-    </symbol>
-  </svg>  <header>
-    <div class="container nav">
-      <a class="brand" href="#" aria-label="PlayBetPro Home">
-        <svg aria-hidden="true"><use href="#logo-playbetpro" /></svg>
-        <div class="wordmark" aria-label="PlayBetPro dot com">
-          <span>PlayBet</span><span class="pro">Pro</span><span>.com</span>
-        </div>
-      </a>
-      <nav class="nav-actions" aria-label="Primary">
-        <a class="btn" href="#features">Features</a>
-        <a class="btn" href="#live">Live</a>
-        <a class="btn" href="#security">Security</a>
-        <a class="btn primary" href="#signup">Sign Up</a>
-      </nav>
-    </div>
-  </header>  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="chip">⚡ দ্রুত, নিরাপদ, স্মার্ট</span>
-          <h1>PlayBetPro.com — স্মার্ট স্পোর্টস বেটিং প্ল্যাটফর্মের জন্য আধুনিক টেমপ্লেট</h1>
-          <p class="sub">এই ল্যান্ডিং পেজটিকে আপনার ব্যাকএন্ড/অ্যাডমিনের সাথে কানেক্ট করে সহজেই লাইভ অডস, ম্যাচ ট্র্যাকিং, এবং সিকিউর পেমেন্ট সেটআপ করতে পারেন।</p>
-          <div class="hero-cta">
-            <a class="btn primary" href="#signup">Create Account</a>
-            <a class="btn" href="#learn">Learn More</a>
-          </div>
-          <div class="stats glass" role="group" aria-label="Platform highlights">
-            <div class="stat"><div class="k" id="stat-users">0</div><div class="lbl">রেজিস্টার্ড ইউজার</div></div>
-            <div class="stat"><div class="k" id="stat-markets">0</div><div class="lbl">মার্কেট লাইভ</div></div>
-            <div class="stat"><div class="k" id="stat-uptime">99.99%</div><div class="lbl">SLA Uptime</div></div>
-          </div>
-        </div>
-        <div class="glass" style="padding:18px">
-          <div class="cards" style="grid-template-columns:1fr;">
-            <div class="card">
-              <h3>🎯 Quick Bet Slip</h3>
-              <p class="muted">এক ক্লিকে সিলেক্ট করুন, অটো–অডস আপডেট পান, ইনস্ট্যান্ট টিকিট জেনারেট।</p>
-            </div>
-            <div class="card">
-              <h3>🔒 Bank‑grade Security</h3>
-              <p class="muted">HTTPS, 2FA, এবং রোল‑বেসড এক্সেস কন্ট্রোল (RBAC) যুক্ত করুন।</p>
-            </div>
-            <div class="card">
-              <h3>📊 Live Analytics</h3>
-              <p class="muted">রিয়েল‑টাইম হিটম্যাপ, ট্র্যাফিক ও কনভার্সন চার্ট প্লাগ‑ইন করুন।</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section><!-- FEATURES -->
-<section id="features" class="section">
-  <div class="container">
-    <h2>মূল ফিচারসমূহ</h2>
-    <div class="cards">
-      <article class="card">
-        <h3>⚽ Multi‑Sport Markets</h3>
-        <p class="muted">ফুটবল, ক্রিকেট, টেনিস সহ আরও অনেক স্পোর্টস মার্কেট যোগ করুন।</p>
-      </article>
-      <article class="card">
-        <h3>💳 Payment Ready</h3>
-        <p class="muted">SSLCommerz, bKash, Nagad বা স্ট্রাইপ API প্লাগ‑ইন করার জন্য রেডি।</p>
-      </article>
-      <article class="card">
-        <h3>🧩 Modular API</h3>
-        <p class="muted">Node/Express, Laravel বা Firebase—যেটাই পছন্দ করেন, এই টেমপ্লেট সহজে কানেক্ট করবে।</p>
-      </article>
+  <div class="wrap">
+    <div class="header">
+      <div class="title">Crash Game – Demo <span class="badge">শুধু শেখার জন্য</span></div>
+      <div class="stat">ব্যালেন্স: <b id="balance">1000</b> কয়েন</div>
+    </div><div class="grid">
+  <!-- Left: Chart -->
+  <div class="card">
+    <canvas id="chart" width="800" height="360"></canvas>
+    <div class="status">
+      <div class="multiplier"><span id="multiplier">1.00</span><span class="x">×</span></div>
+      <div id="status">রাউন্ড শুরু করতে BET দিয়ে Start চাপুন।</div>
     </div>
   </div>
-</section>
 
-<!-- LIVE TICKER (Demo) -->
-<section id="live" class="section">
-  <div class="container">
-    <h2>লাইভ ম্যাচ (ডেমো)</h2>
-    <div class="ticker" id="ticker">
-      <!-- JS will inject demo matches here -->
+  <!-- Right: Controls + History -->
+  <div class="card">
+    <div class="row">
+      <div class="field" style="flex:1">
+        <label>Bet (কয়েন)</label>
+        <input id="bet" type="number" min="1" value="50" />
+      </div>
+      <div class="field" style="flex:1">
+        <label>Auto Cashout (ঐচ্ছিক, যেমন 2.5)</label>
+        <input id="autoCash" type="number" min="1.01" step="0.01" placeholder="" />
+      </div>
     </div>
+    <div class="row mt">
+      <button id="startBtn" class="btn-primary">Start</button>
+      <button id="cashoutBtn" class="btn-secondary btn-disabled" disabled>Cash Out</button>
+      <button id="resetBtn" class="btn-danger">Reset Demo</button>
+    </div>
+    <div class="small mt">⚠️ এই ডেমোতে বাস্তব টাকার কোনো লেনদেন নেই। শুধুই শিক্ষামূলক ও পরীক্ষামূলক ব্যবহার। আপনার দেশের আইন মেনে চলুন।</div>
   </div>
-</section>
+</div>
 
-<!-- SECURITY & CTA -->
-<section id="security" class="section">
-  <div class="container cta">
-    <div class="box glass">
-      <h2>সিকিউরিটি ও কমপ্লায়েন্স</h2>
-      <p class="muted">আপনার দেশের আইন/নীতিমালা মেনে প্ল্যাটফর্ম পরিচালনা করুন। KYC, AML এবং Responsible Gaming নীতিমালা যুক্ত করতে ভুলবেন না।</p>
-      <ul class="muted">
-        <li>2FA (ইমেইল/এসএমএস) • ডিভাইস ফিঙ্গারপ্রিন্টিং</li>
-        <li>এনক্রিপ্টেড ট্রান্সফার (TLS 1.3) • সিকিউর হ্যাশিং (Argon2/BCrypt)</li>
-        <li>অ্যাডমিন অডিট লগ • রেট‑লিমিটিং • WAF/CDN</li>
-      </ul>
-    </div>
-    <div class="box glass" id="signup">
-      <h2>এখনই শুরু করুন</h2>
-      <form class="muted" onsubmit="event.preventDefault(); alert('Thanks for your interest! This is a demo form.');">
-        <label class="small" for="email">ইমেইল</label>
-        <input id="email" type="email" required placeholder="you@example.com" style="width:100%; margin:6px 0 10px; padding:12px 14px; border-radius:12px; border:1px solid #2a3b5f; background:#0e1730; color:var(--fg)"/>
-        <label class="small" for="country">দেশ</label>
-        <input id="country" type="text" placeholder="Bangladesh" style="width:100%; margin:6px 0 16px; padding:12px 14px; border-radius:12px; border:1px solid #2a3b5f; background:#0e1730; color:var(--fg)"/>
-        <button class="btn primary" type="submit">Request Demo</button>
-      </form>
-    </div>
-  </div>
-</section>
+<div class="card mt history">
+  <table>
+    <thead>
+      <tr>
+        <th>রাউন্ড</th>
+        <th>Bet</th>
+        <th>ক্যাশআউট</th>
+        <th>বস্ট</th>
+        <th>প্রফিট</th>
+        <th>স্ট্যাটাস</th>
+      </tr>
+    </thead>
+    <tbody id="history"></tbody>
+  </table>
+</div>
 
-  </main>  <footer>
-    <div class="container footer-grid">
-      <div>
-        <div class="brand" style="margin-bottom:8px">
-          <svg aria-hidden="true" width="28" height="28"><use href="#logo-playbetpro" /></svg>
-          <div class="wordmark"><strong>PlayBet</strong><span class="pro">Pro</span><span>.com</span></div>
-        </div>
-        <p class="small">© <span id="year"></span> PlayBetPro.com — All rights reserved.</p>
-      </div>
-      <div>
-        <p class="small">Responsible Gaming</p>
-        <p class="small">18+ only. Bet responsibly. প্রয়োজনে স্থানীয় কর্তৃপক্ষ ও হেল্পলাইনের সাথে যোগাযোগ করুন।</p>
-      </div>
-      <div>
-        <p class="small">Legal</p>
-        <p class="small">এই টেমপ্লেট ডেমো/শিক্ষামূলক উদ্দেশ্যে। প্রকৃত বেটিং সার্ভিস চালুর আগে আইনগত পরামর্শ নিন।</p>
-      </div>
-    </div>
-  </footer>  <script>
-    // year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // demo stats counter
-    function animateCounter(el, target){
-      let v = 0; const step = Math.max(1, Math.floor(target/60));
-      const t = setInterval(()=>{ v += step; if(v >= target){ v = target; clearInterval(t); } el.textContent = v.toLocaleString(); }, 16);
+  </div>  <script>
+    // ====== Utility RNG with crypto ======
+    function rand() {
+      const buf = new Uint32Array(1);
+      crypto.getRandomValues(buf);
+      return buf[0] / 2**32; // [0,1)
     }
-    animateCounter(document.getElementById('stat-users'), 12500);
-    animateCounter(document.getElementById('stat-markets'), 340);
 
-    // demo live matches
-    const demoMatches = [
-      { teams: 'BAN vs IND', mins: 18, odds:[1.72, 2.10, 3.40] },
-      { teams: 'LIV vs MCI', mins: 62, odds:[2.30, 3.10, 2.85] },
-      { teams: 'PSG vs RMA', mins: 41, odds:[2.05, 3.30, 3.10] },
-      { teams: 'AUS vs ENG', mins: 9, odds:[1.88, 2.45, 3.80] }
-    ];
-    const $ticker = document.getElementById('ticker');
-    function renderTicker(){
-      $ticker.innerHTML = '';
-      demoMatches.forEach(m => {
-        const row = document.createElement('div');
-        row.className = 'match';
-        row.innerHTML = `
-          <div class="teams">
-            <span class="pill">${m.mins}'</span>
-            <strong>${m.teams}</strong>
-          </div>
-          <div class="odds" aria-label="odds">
-            ${m.odds.map(o=>`<span class='pill'>${o.toFixed(2)}</span>`).join('')}
-          </div>
-        `;
-        $ticker.appendChild(row);
-      });
+    // Sample a bust multiplier with a light tail, capped to 20x
+    function sampleBust() {
+      const u = rand();
+      // Exponential-like distribution shifted by 1: mean around ~2.6x, min ~1.03x
+      let m = 1.03 + (-Math.log(1 - u)) * 1.6; 
+      if (m > 20) m = 20;
+      return m;
     }
-    renderTicker();
 
-    // subtle odds wiggle (demo only)
-    setInterval(()=>{
-      demoMatches.forEach(m => {
-        m.odds = m.odds.map(o => Math.max(1.2, o + (Math.random()-.5)*0.06));
-        m.mins = (m.mins + (Math.random() < .4 ? 1 : 0)) % 90;
+    // Format helpers
+    const fmt = (v, d=2) => Number(v).toFixed(d);
+
+    // DOM
+    const canvas = document.getElementById('chart');
+    const ctx = canvas.getContext('2d');
+    const balEl = document.getElementById('balance');
+    const multEl = document.getElementById('multiplier');
+    const statusEl = document.getElementById('status');
+    const betEl = document.getElementById('bet');
+    const autoEl = document.getElementById('autoCash');
+    const startBtn = document.getElementById('startBtn');
+    const cashBtn = document.getElementById('cashoutBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const historyTbody = document.getElementById('history');
+
+    // State
+    let balance = 1000;
+    let running = false;
+    let cashed = false;
+    let round = 0;
+    let bet = 0;
+    let bustAt = 0;
+    let startTime = 0;
+    let points = []; // {t, m}
+    let raf = null;
+
+    // Curve parameters
+    const growth = 0.55; // multiplier = e^{growth * t}
+
+    function currentMultiplier() {
+      const elapsed = (performance.now() - startTime) / 1000;
+      return Math.exp(growth * elapsed);
+    }
+
+    function draw() {
+      // Determine max for scaling
+      const nowM = running ? currentMultiplier() : (points.length ? points[points.length-1].m : 1);
+      const maxM = Math.max(2, Math.min(20, Math.ceil(Math.max(nowM, bustAt) * 1.1)));
+
+      // Clear
+      ctx.clearRect(0,0,canvas.width, canvas.height);
+
+      // Grid
+      ctx.globalAlpha = 0.15;
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 1;
+      for (let i=1;i<maxM;i+=1){
+        const y = mapY(i, maxM);
+        ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(canvas.width, y); ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+
+      // Axis labels
+      ctx.fillStyle = '#9fb3d1';
+      ctx.font = '12px system-ui';
+      for (let i=1;i<=maxM;i+=1){
+        const y = mapY(i, maxM);
+        ctx.fillText(i+'×', 6, y-4);
+      }
+
+      // Path
+      ctx.strokeStyle = '#3ea6ff';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      points.forEach((p, idx)=>{
+        const x = mapX(p.t);
+        const y = mapY(p.m, maxM);
+        if(idx===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
       });
-      renderTicker();
-    }, 2500);
+      ctx.stroke();
+
+      // Bust marker
+      if (bustAt>0){
+        const y = mapY(bustAt, maxM);
+        ctx.strokeStyle = '#ff5d6c';
+        ctx.setLineDash([6,6]);
+        ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(canvas.width, y); ctx.stroke();
+        ctx.setLineDash([]);
+      }
+    }
+
+    function mapX(t){
+      // show last 10 seconds window
+      const maxT = 10;
+      const x = (t / maxT) * canvas.width;
+      return Math.max(0, Math.min(canvas.width, x));
+    }
+    function mapY(m, maxM){
+      const pad = 20;
+      const h = canvas.height - pad*2;
+      const y = canvas.height - pad - (Math.min(m, maxM)-1)/(maxM-1) * h;
+      return y;
+    }
+
+    function tick(){
+      if (!running) return;
+      const t = (performance.now() - startTime)/1000;
+      const m = currentMultiplier();
+
+      // Push point for drawing
+      points.push({t, m});
+
+      // Update UI multiplier
+      multEl.textContent = fmt(m, 2);
+
+      // Auto-cashout
+      const auto = parseFloat(autoEl.value);
+      if (!isNaN(auto) && !cashed && m >= auto){ doCashout(m); }
+
+      // Bust check
+      if (m >= bustAt){
+        endRound(false, m);
+        return;
+      }
+
+      draw();
+      raf = requestAnimationFrame(tick);
+    }
+
+    function startRound(){
+      if (running) return;
+      bet = Math.max(1, Math.floor(parseFloat(betEl.value)||0));
+      if (bet > balance){ statusEl.textContent = 'পর্যাপ্ত ব্যালেন্স নেই।'; return; }
+
+      balance -= bet; updateBalance();
+      cashed = false; running = true; round += 1; points = []; startTime = performance.now();
+      bustAt = sampleBust();
+
+      statusEl.textContent = 'রাউন্ড চলছে… Cash Out করলে লাভ হবে।';
+      startBtn.classList.add('btn-disabled'); startBtn.disabled = true;
+      cashBtn.classList.remove('btn-disabled'); cashBtn.disabled = false;
+
+      multEl.textContent = '1.00';
+      draw();
+      raf = requestAnimationFrame(tick);
+    }
+
+    function doCashout(m){
+      if (!running || cashed) return;
+      cashed = true;
+      const win = Math.floor(bet * m);
+      balance += win; updateBalance();
+      statusEl.textContent = `ক্যাশআউট হয়েছে ${fmt(m)}× এ।`; 
+      // End round immediately upon cashout
+      endRound(true, m);
+    }
+
+    function endRound(won, m){
+      running = false;
+      cancelAnimationFrame(raf);
+      draw();
+
+      const bustShown = Math.max(m, bustAt);
+      const profit = won ? Math.floor(bet * m) - bet : -bet;
+      addHistory({round, bet, cashout: won ? m : null, bust: bustAt, profit, won});
+
+      startBtn.classList.remove('btn-disabled'); startBtn.disabled = false;
+      cashBtn.classList.add('btn-disabled'); cashBtn.disabled = true;
+
+      if (!won){
+        statusEl.textContent = `বস্ট হয়ে গেছে ${fmt(bustAt)}× এ।`; 
+      }
+    }
+
+    function addHistory({round, bet, cashout, bust, profit, won}){
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>#${round}</td>
+        <td>${bet}</td>
+        <td>${cashout? fmt(cashout)+'×' : '-'}</td>
+        <td>${fmt(bust)}×</td>
+        <td>${profit}</td>
+        <td><span class="tag ${won?'win':'lose'}">${won?'WIN':'LOSE'}</span></td>`;
+      historyTbody.prepend(tr);
+    }
+
+    function updateBalance(){ balEl.textContent = balance; }
+
+    function resetDemo(){
+      balance = 1000; updateBalance();
+      running = false; cashed = false; bet = 0; bustAt = 0; points = []; draw();
+      startBtn.classList.remove('btn-disabled'); startBtn.disabled = false;
+      cashBtn.classList.add('btn-disabled'); cashBtn.disabled = true;
+      statusEl.textContent = 'রাউন্ড শুরু করতে BET দিয়ে Start চাপুন।';
+      multEl.textContent = '1.00';
+      historyTbody.innerHTML = '';
+    }
+
+    // Events
+    startBtn.addEventListener('click', startRound);
+    cashBtn.addEventListener('click', ()=> doCashout(currentMultiplier()));
+    resetBtn.addEventListener('click', resetDemo);
+
+    // Initial draw
+    draw();
   </script></body>
 </html>
