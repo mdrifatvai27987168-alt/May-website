@@ -1,325 +1,271 @@
-<!DOCTYPE html>
-<html lang="bn">
+<!DOCTYPE html><html lang="bn">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>আমার শপ | হোম</title>
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome for icons -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-
+  <title>PlayBetPro.com — Smart Sports Betting</title>
+  <meta name="description" content="PlayBetPro.com — A clean, modern sports betting landing page template with logo, sections, and responsive design." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b1220'/%3E%3Cpath d='M14 44 L22 20 h8 l-8 24 h-8 Z M40 44 q8 0 8-8 0-8-8-8 h-6 v-8 h-8 v24 h14 Z' fill='%2300e07b'/%3E%3C/svg%3E" />
   <style>
-    /* custom scrollbar (optional) */
-    ::-webkit-scrollbar{height:6px;width:6px}
-    ::-webkit-scrollbar-thumb{background:#e5e7eb;border-radius:9999px}
-    .shadow-card{box-shadow:0 6px 18px rgba(0,0,0,.06)}
+    :root{
+      --bg:#0b1220;        /* deep navy */
+      --card:#101a2e;      /* darker card */
+      --fg:#e6edf6;        /* near white */
+      --muted:#8aa2c0;     /* slate */
+      --accent:#00e07b;    /* neon green */
+      --accent-2:#00a2ff;  /* electric blue */
+      --ring: 0 0 0 3px color-mix(in srgb, var(--accent) 40%, transparent);
+      --shadow: 0 8px 24px rgba(0,0,0,.35);
+      --radius: 16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      background: radial-gradient(1000px 600px at 20% -10%, rgba(0,224,123,.15), transparent 60%),
+                  radial-gradient(900px 500px at 110% 0%, rgba(0,162,255,.12), transparent 60%),
+                  var(--bg);
+      color:var(--fg);
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1120px; margin:auto; padding:24px}/* HEADER */
+header{position:sticky; top:0; z-index:50; background:linear-gradient(180deg, rgba(11,18,32,.9), rgba(11,18,32,.7), rgba(11,18,32,0)); backdrop-filter:saturate(140%) blur(8px)}
+.nav{display:flex; align-items:center; justify-content:space-between; gap:16px}
+.brand{display:flex; align-items:center; gap:12px}
+.brand svg{width:36px; height:36px}
+.brand .wordmark{font-weight:800; letter-spacing:.3px}
+.brand .pro{color:var(--accent)}
+
+.nav-actions{display:flex; align-items:center; gap:10px}
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  border:1px solid color-mix(in srgb, var(--fg) 10%, transparent);
+  padding:10px 14px; border-radius:999px; font-weight:600; transition:.2s ease; background:transparent; color:var(--fg);
+}
+.btn:hover{transform:translateY(-1px); box-shadow:var(--shadow)}
+.btn.primary{background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 85%, #fff 5%), color-mix(in srgb, var(--accent-2) 65%, #fff 5%)); color:#02140a; border:none}
+
+/* HERO */
+.hero{padding:64px 0 40px}
+.hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:center}
+.chip{display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:999px; background:linear-gradient(180deg, #0e1b31 0%, #0b1220 100%); border:1px solid #183154; color:var(--muted); font-weight:600}
+h1{font-size: clamp(28px, 4vw, 48px); line-height:1.12; margin:16px 0 8px}
+.sub{color:var(--muted); font-size: clamp(14px, 2.4vw, 18px)}
+.hero-cta{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap}
+
+.glass{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); box-shadow:var(--shadow)}
+.stats{display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-top:18px}
+.stat{padding:16px; text-align:center}
+.stat .k{font-weight:800; font-size:22px; color:var(--accent)}
+.stat .lbl{color:var(--muted); font-size:12px}
+
+/* CARDS */
+.section{padding:28px 0}
+.cards{display:grid; grid-template-columns:repeat(3, 1fr); gap:16px}
+.card{padding:18px; border-radius:var(--radius); background:var(--card); border:1px solid rgba(255,255,255,.06); box-shadow:var(--shadow)}
+.card h3{margin:8px 0 6px}
+.muted{color:var(--muted)}
+
+/* LIVE TICKER */
+.ticker{display:grid; grid-template-columns:repeat(2, 1fr); gap:16px}
+.match{display:flex; justify-content:space-between; border-radius:14px; padding:12px 14px; background:linear-gradient(180deg, #0f1b31, #0d1628); border:1px solid #1a2a47}
+.match .teams{display:flex; align-items:center; gap:8px}
+.match .odds{display:flex; gap:8px}
+.pill{padding:6px 10px; border-radius:12px; background:#12233e; font-weight:700}
+.odds .pill{background:#0f2b1f; color:#93ffca}
+
+/* CTA */
+.cta{display:grid; grid-template-columns:1fr .7fr; gap:16px; align-items:center; margin-top:12px}
+.cta .box{padding:22px}
+
+/* FOOTER */
+footer{padding:24px 0 46px; color:var(--muted)}
+.footer-grid{display:grid; grid-template-columns:1.2fr .8fr .8fr; gap:16px}
+.small{font-size:12px}
+
+/* RESPONSIVE */
+@media (max-width: 960px){
+  .hero-grid, .cards, .ticker, .cta, .footer-grid{grid-template-columns:1fr}
+}
+
   </style>
 </head>
-<body class="bg-[#f6f7fb] text-gray-800">
-
-  <!-- Top search bar -->
-  <header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-gray-100">
-    <div class="max-w-6xl mx-auto px-3 py-3 flex items-center gap-3">
-      <a href="#" class="text-2xl font-black text-orange-500">দোকান</a>
-      <div class="flex-1">
-        <div class="flex items-center gap-2 rounded-full border border-gray-200 px-4 py-2">
-          <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
-          <input class="flex-1 outline-none text-sm" placeholder="পণ্য সার্চ করুন…" />
-          <i class="fa-solid fa-microphone text-gray-400"></i>
-          <i class="fa-regular fa-image text-gray-400"></i>
+<body>
+  <!-- SVG LOGO (inline, reusable) -->
+  <svg style="position:absolute; width:0; height:0; overflow:hidden" aria-hidden="true" focusable="false">
+    <symbol id="logo-playbetpro" viewBox="0 0 64 64">
+      <rect x="2" y="2" width="60" height="60" rx="12" fill="#0b1220" />
+      <path d="M14 44 L22 20 h8 l-8 24 h-8 Z M40 44 q8 0 8-8 0-8-8-8 h-6 v-8 h-8 v24 h14 Z" fill="#00e07b" />
+    </symbol>
+  </svg>  <header>
+    <div class="container nav">
+      <a class="brand" href="#" aria-label="PlayBetPro Home">
+        <svg aria-hidden="true"><use href="#logo-playbetpro" /></svg>
+        <div class="wordmark" aria-label="PlayBetPro dot com">
+          <span>PlayBet</span><span class="pro">Pro</span><span>.com</span>
         </div>
-      </div>
-      <a class="hidden sm:flex items-center gap-2 text-sm text-gray-600" href="#"><i class="fa-regular fa-user"></i> লগইন</a>
+      </a>
+      <nav class="nav-actions" aria-label="Primary">
+        <a class="btn" href="#features">Features</a>
+        <a class="btn" href="#live">Live</a>
+        <a class="btn" href="#security">Security</a>
+        <a class="btn primary" href="#signup">Sign Up</a>
+      </nav>
     </div>
-  </header>
-
-  <main class="max-w-6xl mx-auto px-3 pb-24">
-
-    <!-- Banner slider -->
-    <section class="mt-3">
-      <div class="relative overflow-hidden rounded-2xl shadow-card">
-        <div id="slides" class="whitespace-nowrap transition-all duration-500">
-          <img class="inline-block w-full h-40 sm:h-56 object-cover" src="https://picsum.photos/1200/400?random=11" alt="">
-          <img class="inline-block w-full h-40 sm:h-56 object-cover" src="https://picsum.photos/1200/400?random=12" alt="">
-          <img class="inline-block w-full h-40 sm:h-56 object-cover" src="https://picsum.photos/1200/400?random=13" alt="">
+  </header>  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="chip">⚡ দ্রুত, নিরাপদ, স্মার্ট</span>
+          <h1>PlayBetPro.com — স্মার্ট স্পোর্টস বেটিং প্ল্যাটফর্মের জন্য আধুনিক টেমপ্লেট</h1>
+          <p class="sub">এই ল্যান্ডিং পেজটিকে আপনার ব্যাকএন্ড/অ্যাডমিনের সাথে কানেক্ট করে সহজেই লাইভ অডস, ম্যাচ ট্র্যাকিং, এবং সিকিউর পেমেন্ট সেটআপ করতে পারেন।</p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#signup">Create Account</a>
+            <a class="btn" href="#learn">Learn More</a>
+          </div>
+          <div class="stats glass" role="group" aria-label="Platform highlights">
+            <div class="stat"><div class="k" id="stat-users">0</div><div class="lbl">রেজিস্টার্ড ইউজার</div></div>
+            <div class="stat"><div class="k" id="stat-markets">0</div><div class="lbl">মার্কেট লাইভ</div></div>
+            <div class="stat"><div class="k" id="stat-uptime">99.99%</div><div class="lbl">SLA Uptime</div></div>
+          </div>
         </div>
-        <div class="absolute inset-x-0 bottom-2 flex justify-center gap-2">
-          <button class="dot w-2 h-2 rounded-full bg-white/70"></button>
-          <button class="dot w-2 h-2 rounded-full bg-white/40"></button>
-          <button class="dot w-2 h-2 rounded-full bg-white/40"></button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Quick categories -->
-    <section class="mt-5 grid grid-cols-4 sm:grid-cols-8 gap-3">
-      <!-- item -->
-      <a class="bg-white rounded-xl p-3 shadow-card flex flex-col items-center gap-2" href="#">
-        <span class="w-10 h-10 grid place-content-center rounded-xl bg-orange-50 text-orange-500"><i class="fa-solid fa-bolt"></i></span>
-        <span class="text-xs text-center font-medium">৯৯% OFF</span>
-      </a>
-      <a class="bg-white rounded-xl p-3 shadow-card flex flex-col items-center gap-2" href="#">
-        <span class="w-10 h-10 grid place-content-center rounded-xl bg-lime-50 text-lime-600"><i class="fa-solid fa-truck-fast"></i></span>
-        <span class="text-xs text-center font-medium">ফ্রি ডেলিভারি</span>
-      </a>
-      <a class="bg-white rounded-xl p-3 shadow-card flex flex-col items-center gap-2" href="#">
-        <span class="w-10 h-10 grid place-content-center rounded-xl bg-purple-50 text-purple-600"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
-        <span class="text-xs text-center font-medium">বিউটি</span>
-      </a>
-      <a class="bg-white rounded-xl p-3 shadow-card flex flex-col items-center gap-2" href="#">
-        <span class="w-10 h-10 grid place-content-center rounded-xl bg-sky-50 text-sky-600"><i class="fa-solid fa-bag-shopping"></i></span>
-        <span class="text-xs text-center font-medium">শপ নাও</span>
-      </a>
-      <a class="bg-white rounded-xl p-3 shadow-card flex flex-col items-center gap-2" href="#">
-        <span class="w-10 h-10 grid place-content-center rounded-xl bg-teal-50 text-teal-600"><i class="fa-solid fa-star"></i></span>
-        <span class="text-xs text-center font-medium">চয়েস</span>
-      </a>
-      <a class="bg-white rounded-xl p-3 shadow-card flex flex-col items-center gap-2" href="#">
-        <span class="w-10 h-10 grid place-content-center rounded-xl bg-rose-50 text-rose-500"><i class="fa-solid fa-fire"></i></span>
-        <span class="text-xs text-center font-medium">হট ডিল</span>
-      </a>
-      <a class="bg-white rounded-xl p-3 shadow-card flex flex-col items-center gap-2" href="#">
-        <span class="w-10 h-10 grid place-content-center rounded-xl bg-amber-50 text-amber-600"><i class="fa-solid fa-certificate"></i></span>
-        <span class="text-xs text-center font-medium">অরিজিনাল</span>
-      </a>
-      <a class="bg-white rounded-xl p-3 shadow-card flex flex-col items-center gap-2" href="#">
-        <span class="w-10 h-10 grid place-content-center rounded-xl bg-indigo-50 text-indigo-600"><i class="fa-solid fa-tags"></i></span>
-        <span class="text-xs text-center font-medium">কুপন</span>
-      </a>
-    </section>
-
-    <!-- Vouchers -->
-    <section class="mt-6">
-      <div class="bg-white rounded-2xl p-3 shadow-card">
-        <div class="flex items-center justify-between">
-          <h3 class="font-semibold">ভাউচার নিন ও সেভ করুন</h3>
-          <a href="#" class="text-sm text-orange-600">আরো দেখুন</a>
-        </div>
-        <div class="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <a class="border-2 border-dashed border-orange-300 rounded-xl p-3 text-center">
-            <div class="text-lg font-bold text-orange-600">৮% OFF</div>
-            <div class="text-xs">Daraz ভাউচার</div>
-          </a>
-          <a class="border-2 border-dashed border-sky-300 rounded-xl p-3 text-center">
-            <div class="text-lg font-bold text-sky-600">৳৮০</div>
-            <div class="text-xs">ফ্রি শিপিং</div>
-          </a>
-          <a class="border-2 border-dashed border-lime-300 rounded-xl p-3 text-center">
-            <div class="text-lg font-bold text-lime-600">৳৫০</div>
-            <div class="text-xs">কয়েন বোনাস</div>
-          </a>
-          <a class="border-2 border-dashed border-rose-300 rounded-xl p-3 text-center">
-            <div class="text-lg font-bold text-rose-600">১৫% OFF</div>
-            <div class="text-xs">নতুন ব্যবহারকারী</div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Flash Sale -->
-    <section class="mt-6">
-      <div class="bg-white rounded-2xl p-4 shadow-card">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-2">
-            <i class="fa-solid fa-bolt text-orange-500"></i>
-            <h3 class="font-semibold">ফ্ল্যাশ সেল</h3>
-            <span class="text-xs text-gray-500">শেষ হতে: <span id="countdown" class="font-semibold text-rose-600">--:--:--</span></span>
-          </div>
-          <a href="#" class="text-sm text-orange-600">সব দেখুন</a>
-        </div>
-
-        <div class="mt-3 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3">
-          <!-- product card -->
-          <div class="rounded-xl border border-gray-100 bg-white overflow-hidden hover:shadow-card transition">
-            <img class="w-full h-36 object-cover" src="https://picsum.photos/400/300?random=21" alt="">
-            <div class="p-3">
-              <p class="text-sm line-clamp-2">চিয়া সিডস ২০০গ্রাম প্যাক</p>
-              <div class="mt-1 flex items-center gap-2">
-                <span class="text-lg font-bold text-rose-600">৳১৪৩</span>
-                <span class="text-xs line-through text-gray-400">৳৩৪৯</span>
-                <span class="text-xs text-emerald-600">-59%</span>
-              </div>
-              <div class="mt-2 h-1 bg-gray-100 rounded">
-                <div class="h-1 bg-orange-500 rounded" style="width:60%"></div>
-              </div>
-              <p class="mt-1 text-[11px] text-gray-500">১.৮k বিক্রি</p>
+        <div class="glass" style="padding:18px">
+          <div class="cards" style="grid-template-columns:1fr;">
+            <div class="card">
+              <h3>🎯 Quick Bet Slip</h3>
+              <p class="muted">এক ক্লিকে সিলেক্ট করুন, অটো–অডস আপডেট পান, ইনস্ট্যান্ট টিকিট জেনারেট।</p>
             </div>
-          </div>
-
-          <div class="rounded-xl border border-gray-100 bg-white overflow-hidden hover:shadow-card transition">
-            <img class="w-full h-36 object-cover" src="https://picsum.photos/400/300?random=22" alt="">
-            <div class="p-3">
-              <p class="text-sm line-clamp-2">৬ ইন ১ মেকআপ কম্বো সেট</p>
-              <div class="mt-1 flex items-center gap-2">
-                <span class="text-lg font-bold text-rose-600">৳২৬০</span>
-                <span class="text-xs line-through text-gray-400">৳২৯৫</span>
-                <span class="text-xs text-emerald-600">-12%</span>
-              </div>
-              <div class="mt-2 h-1 bg-gray-100 rounded">
-                <div class="h-1 bg-orange-500 rounded" style="width:85%"></div>
-              </div>
-              <p class="mt-1 text-[11px] text-gray-500">৭.২k বিক্রি</p>
+            <div class="card">
+              <h3>🔒 Bank‑grade Security</h3>
+              <p class="muted">HTTPS, 2FA, এবং রোল‑বেসড এক্সেস কন্ট্রোল (RBAC) যুক্ত করুন।</p>
             </div>
-          </div>
-
-          <div class="rounded-xl border border-gray-100 bg-white overflow-hidden hover:shadow-card transition">
-            <img class="w-full h-36 object-cover" src="https://picsum.photos/400/300?random=23" alt="">
-            <div class="p-3">
-              <p class="text-sm line-clamp-2">ডিজিটাল পোর্টেবল স্কেল</p>
-              <div class="mt-1 flex items-center gap-2">
-                <span class="text-lg font-bold text-rose-600">৳৩৫০</span>
-                <span class="text-xs line-through text-gray-400">৳৬৫০</span>
-                <span class="text-xs text-emerald-600">-46%</span>
-              </div>
-              <div class="mt-2 h-1 bg-gray-100 rounded">
-                <div class="h-1 bg-orange-500 rounded" style="width:40%"></div>
-              </div>
-              <p class="mt-1 text-[11px] text-gray-500">৪.১k বিক্রি</p>
-            </div>
-          </div>
-
-          <div class="rounded-xl border border-gray-100 bg-white overflow-hidden hover:shadow-card transition">
-            <img class="w-full h-36 object-cover" src="https://picsum.photos/400/300?random=24" alt="">
-            <div class="p-3">
-              <p class="text-sm line-clamp-2">পুরুষদের লুঙ্গি — ৩ পিস</p>
-              <div class="mt-1 flex items-center gap-2">
-                <span class="text-lg font-bold text-rose-600">৳১৮৫</span>
-                <span class="text-xs line-through text-gray-400">৳২৯৯</span>
-                <span class="text-xs text-emerald-600">-38%</span>
-              </div>
-              <div class="mt-2 h-1 bg-gray-100 rounded">
-                <div class="h-1 bg-orange-500 rounded" style="width:70%"></div>
-              </div>
-              <p class="mt-1 text-[11px] text-gray-500">৪.১k বিক্রি</p>
-            </div>
-          </div>
-
-          <div class="rounded-xl border border-gray-100 bg-white overflow-hidden hover:shadow-card transition">
-            <img class="w-full h-36 object-cover" src="https://picsum.photos/400/300?random=25" alt="">
-            <div class="p-3">
-              <p class="text-sm line-clamp-2">বেবি সিরিয়াল নেসলে ৩৫০গ্রাম</p>
-              <div class="mt-1 flex items-center gap-2">
-                <span class="text-lg font-bold text-rose-600">৳৮৫</span>
-                <span class="text-xs line-through text-gray-400">৳২৩৫</span>
-                <span class="text-xs text-emerald-600">-57%</span>
-              </div>
-              <div class="mt-2 h-1 bg-gray-100 rounded">
-                <div class="h-1 bg-orange-500 rounded" style="width:55%"></div>
-              </div>
-              <p class="mt-1 text-[11px] text-gray-500">৭২৮ বিক্রি</p>
-            </div>
-          </div>
-
-          <div class="rounded-xl border border-gray-100 bg-white overflow-hidden hover:shadow-card transition">
-            <img class="w-full h-36 object-cover" src="https://picsum.photos/400/300?random=26" alt="">
-            <div class="p-3">
-              <p class="text-sm line-clamp-2">ওয়্যারলেস ইয়ারবাডস — Pro</p>
-              <div class="mt-1 flex items-center gap-2">
-                <span class="text-lg font-bold text-rose-600">৳২৯৯</span>
-                <span class="text-xs line-through text-gray-400">৳৬৫০</span>
-                <span class="text-xs text-emerald-600">-54%</span>
-              </div>
-              <div class="mt-2 h-1 bg-gray-100 rounded">
-                <div class="h-1 bg-orange-500 rounded" style="width:25%"></div>
-              </div>
-              <p class="mt-1 text-[11px] text-gray-500">১.৮k বিক্রি</p>
+            <div class="card">
+              <h3>📊 Live Analytics</h3>
+              <p class="muted">রিয়েল‑টাইম হিটম্যাপ, ট্র্যাফিক ও কনভার্সন চার্ট প্লাগ‑ইন করুন।</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- As low as section -->
-    <section class="mt-6">
-      <div class="flex items-center justify-between mb-2">
-        <h3 class="font-semibold">মাত্র <span class="text-emerald-600">৳৮৫</span> থেকে</h3>
-        <a href="#" class="text-sm text-orange-600">শপ নাও | ফ্রি গিফট</a>
-      </div>
-      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3">
-        <!-- simple repeat -->
-        <template id="simple-card">
-          <div class="rounded-xl border border-gray-100 bg-white overflow-hidden hover:shadow-card transition">
-            <img class="w-full h-36 object-cover" src="" alt="">
-            <div class="p-3">
-              <p class="text-sm line-clamp-2">প্রোডাক্ট শিরোনাম</p>
-              <div class="mt-1 flex items-center gap-2">
-                <span class="text-lg font-bold text-rose-600">৳৮৫</span>
-                <span class="text-xs line-through text-gray-400">৳২২০</span>
-                <span class="text-xs text-emerald-600">-61%</span>
-              </div>
-              <p class="mt-1 text-[11px] text-gray-500"><i class="fa-solid fa-star text-amber-400"></i> 4.5 (320) • 2.3k sold</p>
-            </div>
-          </div>
-        </template>
-        <!-- we will clone by JS -->
-        <div id="aslow" class="contents"></div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Bottom nav (mobile style) -->
-  <nav class="fixed inset-x-0 bottom-0 z-30 bg-white border-t border-gray-200">
-    <div class="max-w-6xl mx-auto grid grid-cols-4 text-center">
-      <a class="py-2 text-orange-600">
-        <i class="fa-solid fa-house text-xl"></i><div class="text-xs">হোম</div>
-      </a>
-      <a class="py-2 text-gray-500">
-        <i class="fa-regular fa-message text-xl"></i><div class="text-xs">মেসেজ</div>
-      </a>
-      <a class="py-2 text-gray-500">
-        <i class="fa-solid fa-cart-shopping text-xl"></i><div class="text-xs">কার্ট</div>
-      </a>
-      <a class="py-2 text-gray-500">
-        <i class="fa-regular fa-user text-xl"></i><div class="text-xs">অ্যাকাউন্ট</div>
-      </a>
+    </section><!-- FEATURES -->
+<section id="features" class="section">
+  <div class="container">
+    <h2>মূল ফিচারসমূহ</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>⚽ Multi‑Sport Markets</h3>
+        <p class="muted">ফুটবল, ক্রিকেট, টেনিস সহ আরও অনেক স্পোর্টস মার্কেট যোগ করুন।</p>
+      </article>
+      <article class="card">
+        <h3>💳 Payment Ready</h3>
+        <p class="muted">SSLCommerz, bKash, Nagad বা স্ট্রাইপ API প্লাগ‑ইন করার জন্য রেডি।</p>
+      </article>
+      <article class="card">
+        <h3>🧩 Modular API</h3>
+        <p class="muted">Node/Express, Laravel বা Firebase—যেটাই পছন্দ করেন, এই টেমপ্লেট সহজে কানেক্ট করবে।</p>
+      </article>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <footer class="text-center text-xs text-gray-400 py-6">
-    © <span id="y"></span> আমার ই-কমার্স — ডেমো হোমপেজ
-  </footer>
+<!-- LIVE TICKER (Demo) -->
+<section id="live" class="section">
+  <div class="container">
+    <h2>লাইভ ম্যাচ (ডেমো)</h2>
+    <div class="ticker" id="ticker">
+      <!-- JS will inject demo matches here -->
+    </div>
+  </div>
+</section>
 
-  <script>
+<!-- SECURITY & CTA -->
+<section id="security" class="section">
+  <div class="container cta">
+    <div class="box glass">
+      <h2>সিকিউরিটি ও কমপ্লায়েন্স</h2>
+      <p class="muted">আপনার দেশের আইন/নীতিমালা মেনে প্ল্যাটফর্ম পরিচালনা করুন। KYC, AML এবং Responsible Gaming নীতিমালা যুক্ত করতে ভুলবেন না।</p>
+      <ul class="muted">
+        <li>2FA (ইমেইল/এসএমএস) • ডিভাইস ফিঙ্গারপ্রিন্টিং</li>
+        <li>এনক্রিপ্টেড ট্রান্সফার (TLS 1.3) • সিকিউর হ্যাশিং (Argon2/BCrypt)</li>
+        <li>অ্যাডমিন অডিট লগ • রেট‑লিমিটিং • WAF/CDN</li>
+      </ul>
+    </div>
+    <div class="box glass" id="signup">
+      <h2>এখনই শুরু করুন</h2>
+      <form class="muted" onsubmit="event.preventDefault(); alert('Thanks for your interest! This is a demo form.');">
+        <label class="small" for="email">ইমেইল</label>
+        <input id="email" type="email" required placeholder="you@example.com" style="width:100%; margin:6px 0 10px; padding:12px 14px; border-radius:12px; border:1px solid #2a3b5f; background:#0e1730; color:var(--fg)"/>
+        <label class="small" for="country">দেশ</label>
+        <input id="country" type="text" placeholder="Bangladesh" style="width:100%; margin:6px 0 16px; padding:12px 14px; border-radius:12px; border:1px solid #2a3b5f; background:#0e1730; color:var(--fg)"/>
+        <button class="btn primary" type="submit">Request Demo</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+  </main>  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:8px">
+          <svg aria-hidden="true" width="28" height="28"><use href="#logo-playbetpro" /></svg>
+          <div class="wordmark"><strong>PlayBet</strong><span class="pro">Pro</span><span>.com</span></div>
+        </div>
+        <p class="small">© <span id="year"></span> PlayBetPro.com — All rights reserved.</p>
+      </div>
+      <div>
+        <p class="small">Responsible Gaming</p>
+        <p class="small">18+ only. Bet responsibly. প্রয়োজনে স্থানীয় কর্তৃপক্ষ ও হেল্পলাইনের সাথে যোগাযোগ করুন।</p>
+      </div>
+      <div>
+        <p class="small">Legal</p>
+        <p class="small">এই টেমপ্লেট ডেমো/শিক্ষামূলক উদ্দেশ্যে। প্রকৃত বেটিং সার্ভিস চালুর আগে আইনগত পরামর্শ নিন।</p>
+      </div>
+    </div>
+  </footer>  <script>
     // year
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // slider
-    const slides = document.getElementById('slides');
-    const dots   = Array.from(document.querySelectorAll('.dot'));
-    let index=0;
-    function show(i){
-      index = i % 3;
-      slides.style.transform = `translateX(-${index*100}%)`;
-      dots.forEach((d,di)=>d.style.background = di===index? 'rgba(255,255,255,.95)': 'rgba(255,255,255,.4)');
+    // demo stats counter
+    function animateCounter(el, target){
+      let v = 0; const step = Math.max(1, Math.floor(target/60));
+      const t = setInterval(()=>{ v += step; if(v >= target){ v = target; clearInterval(t); } el.textContent = v.toLocaleString(); }, 16);
     }
-    dots.forEach((d,i)=>d.addEventListener('click',()=>show(i)));
-    setInterval(()=>show(index+1), 3500);
+    animateCounter(document.getElementById('stat-users'), 12500);
+    animateCounter(document.getElementById('stat-markets'), 340);
 
-    // countdown to next hour (Flash Sale)
-    function updateCountdown(){
-      const now=new Date();
-      const next=new Date(now);
-      next.setHours(now.getHours()+1,0,0,0);
-      const s=Math.max(0,Math.floor((next-now)/1000));
-      const h=String(Math.floor(s/3600)).padStart(2,'0');
-      const m=String(Math.floor((s%3600)/60)).padStart(2,'0');
-      const ss=String(s%60).padStart(2,'0');
-      document.getElementById('countdown').textContent=`${h}:${m}:${ss}`;
+    // demo live matches
+    const demoMatches = [
+      { teams: 'BAN vs IND', mins: 18, odds:[1.72, 2.10, 3.40] },
+      { teams: 'LIV vs MCI', mins: 62, odds:[2.30, 3.10, 2.85] },
+      { teams: 'PSG vs RMA', mins: 41, odds:[2.05, 3.30, 3.10] },
+      { teams: 'AUS vs ENG', mins: 9, odds:[1.88, 2.45, 3.80] }
+    ];
+    const $ticker = document.getElementById('ticker');
+    function renderTicker(){
+      $ticker.innerHTML = '';
+      demoMatches.forEach(m => {
+        const row = document.createElement('div');
+        row.className = 'match';
+        row.innerHTML = `
+          <div class="teams">
+            <span class="pill">${m.mins}'</span>
+            <strong>${m.teams}</strong>
+          </div>
+          <div class="odds" aria-label="odds">
+            ${m.odds.map(o=>`<span class='pill'>${o.toFixed(2)}</span>`).join('')}
+          </div>
+        `;
+        $ticker.appendChild(row);
+      });
     }
-    setInterval(updateCountdown,1000); updateCountdown();
+    renderTicker();
 
-    // generate "as low as" mock cards
-    const imgs=[27,28,29,30,31,32,33,34,35,36,37,38].map(n=>`https://picsum.photos/400/300?random=${n}`);
-    const container=document.getElementById('aslow');
-    const tpl=document.getElementById('simple-card');
-    imgs.forEach(src=>{
-      const node=tpl.content.cloneNode(true);
-      node.querySelector('img').src=src;
-      container.appendChild(node);
-    });
-  </script>
-</body>
+    // subtle odds wiggle (demo only)
+    setInterval(()=>{
+      demoMatches.forEach(m => {
+        m.odds = m.odds.map(o => Math.max(1.2, o + (Math.random()-.5)*0.06));
+        m.mins = (m.mins + (Math.random() < .4 ? 1 : 0)) % 90;
+      });
+      renderTicker();
+    }, 2500);
+  </script></body>
 </html>
