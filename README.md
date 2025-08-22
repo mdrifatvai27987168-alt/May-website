@@ -76,7 +76,8 @@
     <div class="small mt">⚠️ এই ডেমোতে বাস্তব টাকার কোনো লেনদেন নেই। শুধুই শিক্ষামূলক ও পরীক্ষামূলক ব্যবহার। আপনার দেশের আইন মেনে চলুন।</div>
   </div>
 </div>
-
+<script async="async" data-cfasync="false" src="//pl27481361.profitableratecpm.com/a10659fe341613d0d49e9889cd5149d1/invoke.js"></script>
+<div id="container-a10659fe341613d0d49e9889cd5149d1"></div>
 <div class="card mt history">
   <table>
     <thead>
@@ -308,3 +309,23 @@
     draw();
   </script></body>
 </html>
+<script async="async" data-cfasync="false" src="//pl27481361.profitableratecpm.com/a10659fe341613d0d49e9889cd5149d1/invoke.js"></script>
+<div id="container-a10659fe341613d0d49e9889cd5149d1"></div><script type='text/javascript' src='//pl27480733.profitableratecpm.com/89/e3/33/89e333a300909752a3f5a2d53a96d9ec.js'></script><script type='text/javascript' src='//pl27481491.profitableratecpm.com/13/a1/90/13a190d532e5710cafd301fcddf978e9.js'></script><script type="text/javascript">
+	atOptions = {
+		'key' : 'b6e1ddfc6ed6e4313714eb88d856f763',
+		'format' : 'iframe',
+		'height' : 60,
+		'width' : 468,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/b6e1ddfc6ed6e4313714eb88d856f763/invoke.js"></script><script type="text/javascript">
+	atOptions = {
+		'key' : '7d45af681199c0bc8755103e45f9ac99',
+		'format' : 'iframe',
+		'height' : 300,
+		'width' : 160,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/7d45af681199c0bc8755103e45f9ac99/invoke.js"></script>
